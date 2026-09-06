@@ -1,0 +1,2723 @@
+{
+ "schema_version": 1,
+ "scenarios": {
+  "magic-burst": {
+   "analyze": {
+    "input_source": "player_tapped_capture",
+    "layout_version": "draft-layout-1080x2400-v1",
+    "index_hash": "d19a3ce57328e292ed021bba39beeb47d8d2696102d062c4c93a94388457cf40",
+    "slots": [
+     {
+      "slot_index": 0,
+      "candidates": [
+       {
+        "hero_id": 142,
+        "hero_name": "安琪拉",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 109,
+        "hero_name": "妲己",
+        "confidence": 0.8609
+       },
+       {
+        "hero_id": 174,
+        "hero_name": "虞姬",
+        "confidence": 0.8508
+       }
+      ]
+     },
+     {
+      "slot_index": 1,
+      "candidates": [
+       {
+        "hero_id": 152,
+        "hero_name": "王昭君",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 174,
+        "hero_name": "虞姬",
+        "confidence": 0.8558
+       },
+       {
+        "hero_id": 504,
+        "hero_name": "米莱狄",
+        "confidence": 0.8417
+       }
+      ]
+     },
+     {
+      "slot_index": 2,
+      "candidates": [
+       {
+        "hero_id": 156,
+        "hero_name": "张良",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 154,
+        "hero_name": "花木兰",
+        "confidence": 0.8735
+       },
+       {
+        "hero_id": 536,
+        "hero_name": "夏洛特",
+        "confidence": 0.8549
+       }
+      ]
+     },
+     {
+      "slot_index": 3,
+      "candidates": [
+       {
+        "hero_id": 141,
+        "hero_name": "貂蝉",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 144,
+        "hero_name": "程咬金",
+        "confidence": 0.7987
+       },
+       {
+        "hero_id": 123,
+        "hero_name": "吕布",
+        "confidence": 0.7986
+       }
+      ]
+     },
+     {
+      "slot_index": 4,
+      "candidates": [
+       {
+        "hero_id": 109,
+        "hero_name": "妲己",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 142,
+        "hero_name": "安琪拉",
+        "confidence": 0.8609
+       },
+       {
+        "hero_id": 169,
+        "hero_name": "后羿",
+        "confidence": 0.8453
+       }
+      ]
+     }
+    ]
+   },
+   "decisions": {
+    "169": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "magic_resist",
+      "tenacity",
+      "survival"
+     ],
+     "threat_counts": {
+      "magic_burst": 4,
+      "crowd_control": 2,
+      "physical_sustain": 1,
+      "true_damage": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 169,
+      "name": "后羿",
+      "hero_type": 5,
+      "role_label": "射手"
+     },
+     "own_hero_adjustments": [
+      {
+       "code": "fragile_survival",
+       "label": "脆皮优先保命",
+       "added_needs": [
+        "survival"
+       ],
+       "reason": "当前英雄承伤容错较低，敌方已有爆发威胁，先补一件保命/减伤装备。"
+      }
+     ],
+     "recommendations": [
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      },
+      {
+       "item_id": 1127,
+       "item_name": "名刀·司命",
+       "covered_needs": [
+        "survival"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1127,
+       "next_item_name": "名刀·司命",
+       "replace_item_id": null,
+       "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+       "function_explanation": {
+        "death_avoid": "免死",
+        "survival": "生存保命"
+       },
+       "item_price": 2060,
+       "component_path": [
+        {
+         "item_id": 1121,
+         "name": "风暴巨剑",
+         "price": 850
+        },
+        {
+         "item_id": 1311,
+         "name": "红玛瑙",
+         "price": 300
+        }
+       ],
+       "why_now": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2140,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "133": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "magic_resist",
+      "tenacity",
+      "survival"
+     ],
+     "threat_counts": {
+      "magic_burst": 4,
+      "crowd_control": 2,
+      "physical_sustain": 1,
+      "true_damage": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 133,
+      "name": "狄仁杰",
+      "hero_type": 5,
+      "role_label": "射手"
+     },
+     "own_hero_adjustments": [
+      {
+       "code": "fragile_survival",
+       "label": "脆皮优先保命",
+       "added_needs": [
+        "survival"
+       ],
+       "reason": "当前英雄承伤容错较低，敌方已有爆发威胁，先补一件保命/减伤装备。"
+      }
+     ],
+     "recommendations": [
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      },
+      {
+       "item_id": 1127,
+       "item_name": "名刀·司命",
+       "covered_needs": [
+        "survival"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1127,
+       "next_item_name": "名刀·司命",
+       "replace_item_id": null,
+       "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+       "function_explanation": {
+        "death_avoid": "免死",
+        "survival": "生存保命"
+       },
+       "item_price": 2060,
+       "component_path": [
+        {
+         "item_id": 1121,
+         "name": "风暴巨剑",
+         "price": 850
+        },
+        {
+         "item_id": 1311,
+         "name": "红玛瑙",
+         "price": 300
+        }
+       ],
+       "why_now": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2140,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "107": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "magic_resist",
+      "tenacity"
+     ],
+     "threat_counts": {
+      "magic_burst": 4,
+      "crowd_control": 2,
+      "physical_sustain": 1,
+      "true_damage": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 107,
+      "name": "赵云",
+      "hero_type": 1,
+      "role_label": "战士"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2140,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "118": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "magic_resist",
+      "tenacity"
+     ],
+     "threat_counts": {
+      "magic_burst": 4,
+      "crowd_control": 2,
+      "physical_sustain": 1,
+      "true_damage": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 118,
+      "name": "孙膑",
+      "hero_type": 6,
+      "role_label": "辅助"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2140,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "105": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "magic_resist",
+      "tenacity"
+     ],
+     "threat_counts": {
+      "magic_burst": 4,
+      "crowd_control": 2,
+      "physical_sustain": 1,
+      "true_damage": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 105,
+      "name": "廉颇",
+      "hero_type": 3,
+      "role_label": "坦克"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2140,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    }
+   }
+  },
+  "assassin-dive": {
+   "analyze": {
+    "input_source": "player_tapped_capture",
+    "layout_version": "draft-layout-1080x2400-v1",
+    "index_hash": "d19a3ce57328e292ed021bba39beeb47d8d2696102d062c4c93a94388457cf40",
+    "slots": [
+     {
+      "slot_index": 0,
+      "candidates": [
+       {
+        "hero_id": 153,
+        "hero_name": "兰陵王",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 105,
+        "hero_name": "廉颇",
+        "confidence": 0.8254
+       },
+       {
+        "hero_id": 108,
+        "hero_name": "墨子",
+        "confidence": 0.8105
+       }
+      ]
+     },
+     {
+      "slot_index": 1,
+      "candidates": [
+       {
+        "hero_id": 167,
+        "hero_name": "孙悟空",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 169,
+        "hero_name": "后羿",
+        "confidence": 0.8147
+       },
+       {
+        "hero_id": 533,
+        "hero_name": "阿古朵",
+        "confidence": 0.809
+       }
+      ]
+     },
+     {
+      "slot_index": 2,
+      "candidates": [
+       {
+        "hero_id": 107,
+        "hero_name": "赵云",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 510,
+        "hero_name": "孙策",
+        "confidence": 0.8392
+       },
+       {
+        "hero_id": 542,
+        "hero_name": "暃",
+        "confidence": 0.8303
+       }
+      ]
+     },
+     {
+      "slot_index": 3,
+      "candidates": [
+       {
+        "hero_id": 144,
+        "hero_name": "程咬金",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 108,
+        "hero_name": "墨子",
+        "confidence": 0.8485
+       },
+       {
+        "hero_id": 170,
+        "hero_name": "刘备",
+        "confidence": 0.8349
+       }
+      ]
+     },
+     {
+      "slot_index": 4,
+      "candidates": [
+       {
+        "hero_id": 133,
+        "hero_name": "狄仁杰",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 172,
+        "hero_name": "蚩奼",
+        "confidence": 0.8472
+       },
+       {
+        "hero_id": 511,
+        "hero_name": "猪八戒",
+        "confidence": 0.8462
+       }
+      ]
+     }
+    ]
+   },
+   "decisions": {
+    "112": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "physical_defense",
+      "survival"
+     ],
+     "threat_counts": {
+      "mobility": 1,
+      "physical_burst": 2,
+      "healing": 1,
+      "physical_sustain": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 112,
+      "name": "鲁班七号",
+      "hero_type": 5,
+      "role_label": "射手"
+     },
+     "own_hero_adjustments": [
+      {
+       "code": "fragile_survival",
+       "label": "脆皮优先保命",
+       "added_needs": [
+        "survival"
+       ],
+       "reason": "当前英雄承伤容错较低，敌方已有爆发威胁，先补一件保命/减伤装备。"
+      }
+     ],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal",
+        "physical_defense"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1127,
+       "item_name": "名刀·司命",
+       "covered_needs": [
+        "survival"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1127,
+       "next_item_name": "名刀·司命",
+       "replace_item_id": null,
+       "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+       "function_explanation": {
+        "death_avoid": "免死",
+        "survival": "生存保命"
+       },
+       "item_price": 2060,
+       "component_path": [
+        {
+         "item_id": 1121,
+         "name": "风暴巨剑",
+         "price": 850
+        },
+        {
+         "item_id": 1311,
+         "name": "红玛瑙",
+         "price": 300
+        }
+       ],
+       "why_now": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2860,
+      "inventory_slots_free": 3,
+      "revive_uses_remaining": 1,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "106": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "physical_defense",
+      "survival"
+     ],
+     "threat_counts": {
+      "mobility": 1,
+      "physical_burst": 2,
+      "healing": 1,
+      "physical_sustain": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 106,
+      "name": "小乔",
+      "hero_type": 2,
+      "role_label": "法师"
+     },
+     "own_hero_adjustments": [
+      {
+       "code": "fragile_survival",
+       "label": "脆皮优先保命",
+       "added_needs": [
+        "survival"
+       ],
+       "reason": "当前英雄承伤容错较低，敌方已有爆发威胁，先补一件保命/减伤装备。"
+      }
+     ],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal",
+        "physical_defense"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1127,
+       "item_name": "名刀·司命",
+       "covered_needs": [
+        "survival"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1127,
+       "next_item_name": "名刀·司命",
+       "replace_item_id": null,
+       "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+       "function_explanation": {
+        "death_avoid": "免死",
+        "survival": "生存保命"
+       },
+       "item_price": 2060,
+       "component_path": [
+        {
+         "item_id": 1121,
+         "name": "风暴巨剑",
+         "price": 850
+        },
+        {
+         "item_id": 1311,
+         "name": "红玛瑙",
+         "price": 300
+        }
+       ],
+       "why_now": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2860,
+      "inventory_slots_free": 3,
+      "revive_uses_remaining": 1,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "167": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "physical_defense",
+      "survival"
+     ],
+     "threat_counts": {
+      "mobility": 1,
+      "physical_burst": 2,
+      "healing": 1,
+      "physical_sustain": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 167,
+      "name": "孙悟空",
+      "hero_type": 4,
+      "role_label": "刺客"
+     },
+     "own_hero_adjustments": [
+      {
+       "code": "fragile_survival",
+       "label": "脆皮优先保命",
+       "added_needs": [
+        "survival"
+       ],
+       "reason": "当前英雄承伤容错较低，敌方已有爆发威胁，先补一件保命/减伤装备。"
+      }
+     ],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal",
+        "physical_defense"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1127,
+       "item_name": "名刀·司命",
+       "covered_needs": [
+        "survival"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1127,
+       "next_item_name": "名刀·司命",
+       "replace_item_id": null,
+       "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+       "function_explanation": {
+        "death_avoid": "免死",
+        "survival": "生存保命"
+       },
+       "item_price": 2060,
+       "component_path": [
+        {
+         "item_id": 1121,
+         "name": "风暴巨剑",
+         "price": 850
+        },
+        {
+         "item_id": 1311,
+         "name": "红玛瑙",
+         "price": 300
+        }
+       ],
+       "why_now": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2860,
+      "inventory_slots_free": 3,
+      "revive_uses_remaining": 1,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "105": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "physical_defense"
+     ],
+     "threat_counts": {
+      "mobility": 1,
+      "physical_burst": 2,
+      "healing": 1,
+      "physical_sustain": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 105,
+      "name": "廉颇",
+      "hero_type": 3,
+      "role_label": "坦克"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal",
+        "physical_defense"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2860,
+      "inventory_slots_free": 3,
+      "revive_uses_remaining": 1,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "118": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "physical_defense"
+     ],
+     "threat_counts": {
+      "mobility": 1,
+      "physical_burst": 2,
+      "healing": 1,
+      "physical_sustain": 1
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 118,
+      "name": "孙膑",
+      "hero_type": 6,
+      "role_label": "辅助"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal",
+        "physical_defense"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "buy_now",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "buy_now",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 2860,
+      "inventory_slots_free": 3,
+      "revive_uses_remaining": 1,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    }
+   }
+  },
+  "sustain-control": {
+   "analyze": {
+    "input_source": "player_tapped_capture",
+    "layout_version": "draft-layout-1080x2400-v1",
+    "index_hash": "d19a3ce57328e292ed021bba39beeb47d8d2696102d062c4c93a94388457cf40",
+    "slots": [
+     {
+      "slot_index": 0,
+      "candidates": [
+       {
+        "hero_id": 144,
+        "hero_name": "程咬金",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 108,
+        "hero_name": "墨子",
+        "confidence": 0.8485
+       },
+       {
+        "hero_id": 170,
+        "hero_name": "刘备",
+        "confidence": 0.8349
+       }
+      ]
+     },
+     {
+      "slot_index": 1,
+      "candidates": [
+       {
+        "hero_id": 118,
+        "hero_name": "孙膑",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 197,
+        "hero_name": "弈星",
+        "confidence": 0.8429
+       },
+       {
+        "hero_id": 514,
+        "hero_name": "亚连",
+        "confidence": 0.8385
+       }
+      ]
+     },
+     {
+      "slot_index": 2,
+      "candidates": [
+       {
+        "hero_id": 184,
+        "hero_name": "蔡文姬",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 152,
+        "hero_name": "王昭君",
+        "confidence": 0.8151
+       },
+       {
+        "hero_id": 174,
+        "hero_name": "虞姬",
+        "confidence": 0.809
+       }
+      ]
+     },
+     {
+      "slot_index": 3,
+      "candidates": [
+       {
+        "hero_id": 156,
+        "hero_name": "张良",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 154,
+        "hero_name": "花木兰",
+        "confidence": 0.8735
+       },
+       {
+        "hero_id": 536,
+        "hero_name": "夏洛特",
+        "confidence": 0.8549
+       }
+      ]
+     },
+     {
+      "slot_index": 4,
+      "candidates": [
+       {
+        "hero_id": 108,
+        "hero_name": "墨子",
+        "confidence": 1.0
+       },
+       {
+        "hero_id": 120,
+        "hero_name": "白起",
+        "confidence": 0.8947
+       },
+       {
+        "hero_id": 129,
+        "hero_name": "典韦",
+        "confidence": 0.8744
+       }
+      ]
+     }
+    ]
+   },
+   "decisions": {
+    "105": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "magic_resist",
+      "tenacity",
+      "anti_sustain"
+     ],
+     "threat_counts": {
+      "healing": 3,
+      "physical_sustain": 2,
+      "crowd_control": 3,
+      "movement_speed": 1,
+      "magic_burst": 2
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 105,
+      "name": "廉颇",
+      "hero_type": 3,
+      "role_label": "坦克"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal"
+       ],
+       "purchase_status": "save_for",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "save_for",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 1650,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "107": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "magic_resist",
+      "tenacity",
+      "anti_sustain"
+     ],
+     "threat_counts": {
+      "healing": 3,
+      "physical_sustain": 2,
+      "crowd_control": 3,
+      "movement_speed": 1,
+      "magic_burst": 2
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 107,
+      "name": "赵云",
+      "hero_type": 1,
+      "role_label": "战士"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal"
+       ],
+       "purchase_status": "save_for",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "save_for",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 1650,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "142": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "magic_resist",
+      "tenacity",
+      "anti_sustain",
+      "survival"
+     ],
+     "threat_counts": {
+      "healing": 3,
+      "physical_sustain": 2,
+      "crowd_control": 3,
+      "movement_speed": 1,
+      "magic_burst": 2
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 142,
+      "name": "安琪拉",
+      "hero_type": 2,
+      "role_label": "法师"
+     },
+     "own_hero_adjustments": [
+      {
+       "code": "fragile_survival",
+       "label": "脆皮优先保命",
+       "added_needs": [
+        "survival"
+       ],
+       "reason": "当前英雄承伤容错较低，敌方已有爆发威胁，先补一件保命/减伤装备。"
+      }
+     ],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal"
+       ],
+       "purchase_status": "save_for",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      },
+      {
+       "item_id": 1127,
+       "item_name": "名刀·司命",
+       "covered_needs": [
+        "survival"
+       ],
+       "purchase_status": "buy_component",
+       "next_item_id": 1121,
+       "next_item_name": "风暴巨剑",
+       "replace_item_id": null,
+       "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+       "function_explanation": {
+        "death_avoid": "免死",
+        "survival": "生存保命"
+       },
+       "item_price": 2060,
+       "component_path": [
+        {
+         "item_id": 1121,
+         "name": "风暴巨剑",
+         "price": 850
+        },
+        {
+         "item_id": 1311,
+         "name": "红玛瑙",
+         "price": 300
+        }
+       ],
+       "why_now": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "save_for",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 1650,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "112": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "magic_resist",
+      "tenacity",
+      "anti_sustain",
+      "survival"
+     ],
+     "threat_counts": {
+      "healing": 3,
+      "physical_sustain": 2,
+      "crowd_control": 3,
+      "movement_speed": 1,
+      "magic_burst": 2
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 112,
+      "name": "鲁班七号",
+      "hero_type": 5,
+      "role_label": "射手"
+     },
+     "own_hero_adjustments": [
+      {
+       "code": "fragile_survival",
+       "label": "脆皮优先保命",
+       "added_needs": [
+        "survival"
+       ],
+       "reason": "当前英雄承伤容错较低，敌方已有爆发威胁，先补一件保命/减伤装备。"
+      }
+     ],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal"
+       ],
+       "purchase_status": "save_for",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      },
+      {
+       "item_id": 1127,
+       "item_name": "名刀·司命",
+       "covered_needs": [
+        "survival"
+       ],
+       "purchase_status": "buy_component",
+       "next_item_id": 1121,
+       "next_item_name": "风暴巨剑",
+       "replace_item_id": null,
+       "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+       "function_explanation": {
+        "death_avoid": "免死",
+        "survival": "生存保命"
+       },
+       "item_price": 2060,
+       "component_path": [
+        {
+         "item_id": 1121,
+         "name": "风暴巨剑",
+         "price": 850
+        },
+        {
+         "item_id": 1311,
+         "name": "红玛瑙",
+         "price": 300
+        }
+       ],
+       "why_now": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "save_for",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 1650,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    },
+    "184": {
+     "input_source": "player_confirmed_screen",
+     "mode": "local_rules",
+     "priority_needs": [
+      "anti_heal",
+      "magic_resist",
+      "tenacity",
+      "anti_sustain"
+     ],
+     "threat_counts": {
+      "healing": 3,
+      "physical_sustain": 2,
+      "crowd_control": 3,
+      "movement_speed": 1,
+      "magic_burst": 2
+     },
+     "unknown_hero_ids": [],
+     "own_hero": {
+      "hero_id": 184,
+      "name": "蔡文姬",
+      "hero_type": 6,
+      "role_label": "辅助"
+     },
+     "own_hero_adjustments": [],
+     "recommendations": [
+      {
+       "item_id": 1331,
+       "item_name": "红莲斗篷",
+       "covered_needs": [
+        "anti_heal"
+       ],
+       "purchase_status": "save_for",
+       "next_item_id": 1331,
+       "next_item_name": "红莲斗篷",
+       "replace_item_id": null,
+       "evidence": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒",
+       "function_explanation": {
+        "anti_heal": "减疗（降低敌方回血/吸血）",
+        "physical_defense": "物理防御"
+       },
+       "item_price": 2040,
+       "component_path": [],
+       "why_now": "红莲斗篷：+240物理防御+1350最大生命 被动-业炎: 每秒灼烧375范围内的敌人并造成1.5%最大生命的法术伤害（对小兵和野怪造成双倍伤害）被动-重伤：受到灼烧效果会降低敌方生命回复和吸血效果35%，持续2.5秒"
+      },
+      {
+       "item_id": 1422,
+       "item_name": "抵抗之靴",
+       "covered_needs": [
+        "magic_resist",
+        "tenacity"
+       ],
+       "purchase_status": "buy_now",
+       "next_item_id": 1422,
+       "next_item_name": "抵抗之靴",
+       "replace_item_id": null,
+       "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+       "function_explanation": {
+        "boots": "鞋子",
+        "magic_resist": "法术防御",
+        "physical_defense": "物理防御",
+        "tenacity": "韧性（缩短被控时间）"
+       },
+       "item_price": 700,
+       "component_path": [
+        {
+         "item_id": 1405,
+         "name": "神速之靴",
+         "price": 250
+        }
+       ],
+       "why_now": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性"
+      }
+     ],
+     "emergency_swap": {
+      "suggestions": [
+       {
+        "action": "save_for",
+        "target_item_id": 1239,
+        "target_item_name": "辉月",
+        "cost": 2080,
+        "reason": "保命备选",
+        "why_now": "残血/被集火瞬间开金身免疫 1.5 秒，拖到队友支援。",
+        "evidence": "辉月：+160法术攻击+7.5%冷却缩减+12%法术吸血 唯一主动-月之守护：75秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+        "constraints": [
+         "主动冷却约 75 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1337,
+        "target_item_name": "贤者的庇护",
+        "cost": 2280,
+        "reason": "保命备选",
+        "why_now": "吃到致命伤害后原地复活，适合有复活次数时拼一波。",
+        "evidence": "贤者的庇护：+150物理防御+150法术防御+900最大生命+5%冷却缩减 唯一被动-复生：死亡后2秒原地复活，并获得2000~3000点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        "constraints": [
+         "复活甲每局最多 2 次"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1127,
+        "target_item_name": "名刀·司命",
+        "cost": 2060,
+        "reason": "保命备选",
+        "why_now": "名刀是廉价的免死备选，且可以和其他保命装并存。",
+        "evidence": "名刀·司命：+500最大生命+75物理攻击+15%攻击速度 唯一被动-暗幕：受到致命伤害时不会立刻阵亡，获得短暂无敌并增加15%移速，持续1秒，购买后每隔90/180/270秒增加0.2秒无敌并获得5%名刀·司命基础属性提升，至多3次，冷却时间：120秒",
+        "constraints": [],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 1328,
+        "target_item_name": "血魔之怒",
+        "cost": 2180,
+        "reason": "保命备选",
+        "why_now": "血魔主动给盾，适合在被秒前开出来。",
+        "evidence": "血魔之怒：+75物理攻击+900最大生命 唯一主动-血怒：逐渐扣除30%当前生命，逐渐获得累计（40%最大生命）护盾，持续4秒 ，冷却时间：75秒被动-狂怒：普通攻击额外附带1.5%最大生命的物理伤害，当自身生命低于50%伤害提升25%~50%，冷却时间：0.15秒",
+        "constraints": [
+         "主动冷却约 4 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "save_for",
+        "target_item_id": 11311,
+        "target_item_name": "纯净苍穹",
+        "cost": 2140,
+        "reason": "保命备选",
+        "why_now": "纯净苍穹主动减伤 30%，适合开团时提前开启。",
+        "evidence": "纯净苍穹：+80物理攻击+10%冷却缩减+150物理防御 唯一主动-驱散：获得30%减伤，持续3秒，冷却时间：75秒被动-残废：技能对首个命中的敌方英雄造成10%~20%减速，并使其对自己的伤害降低20%，持续3秒，该效果有8秒冷却时间",
+        "constraints": [
+         "主动冷却约 3 秒"
+        ],
+        "replace_item_id": null
+       },
+       {
+        "action": "consider_buying",
+        "target_item_id": 1422,
+        "target_item_name": "抵抗之靴",
+        "cost": 700,
+        "reason": "敌方法术控制偏多",
+        "why_now": "控住一次可能就是一波团灭；抵抗之靴的韧性直接缩短被控时间。",
+        "evidence": "抵抗之靴：+50物理防御+100法术防御 被动-神速：+50移动速度（所有鞋类装备的移速加成效果不叠加）被动-坚韧：+25%韧性",
+        "constraints": [
+         "鞋子移速不叠加，买了抵抗之靴后原来的冷静之靴效果不叠加"
+        ],
+        "replace_item_id": null
+       }
+      ],
+      "remaining_gold": 1650,
+      "inventory_slots_free": 4,
+      "revive_uses_remaining": 2,
+      "warnings": []
+     },
+     "catalog_provenance": {
+      "item_source_url": "https://pvp.qq.com/web201605/js/item.json",
+      "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json"
+     }
+    }
+   }
+  }
+ }
+}

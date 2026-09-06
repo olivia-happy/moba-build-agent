@@ -19,7 +19,7 @@
 ### 目录结构
 
 ```
-project5/
+moba-build-agent/
 ├── backend/            FastAPI 服务
 │   ├── app/            main.py / decision_agent.py / equipment_catalog.py / emergency_swap.py / hero_profiles.py / ...
 │   ├── tests/          pytest 测试（42 个）
