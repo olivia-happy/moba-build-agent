@@ -8,6 +8,8 @@
 
 > **案例研究**：[`docs/CASE_STUDY.md`](docs/CASE_STUDY.md) — 问题、工作流、AI 边界与评测。 **产品文档**：[`docs/MOBA_BUILD_AGENT_PRD.md`](docs/MOBA_BUILD_AGENT_PRD.md)
 
+> **运行成本：免费** — 全程本地运行，零 API key、零付费调用；数据来自官方公开静态资源，识别与决策都在本机完成，在线 Demo 走免费 GitHub Pages。
+
 ### 🕹️ 在线体验（GitHub Pages · 免安装）
 
 **[点这里直接打开 H5 演示](https://olivia-happy.github.io/moba-build-agent/)** — 三个对局场景，识别 → 确认 → 出装建议 → 紧急秒换全流程。后端不可用时自动回退到内置快照，任何人、任何设备打开即用，无需运行代码。
