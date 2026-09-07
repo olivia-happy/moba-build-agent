@@ -6,7 +6,13 @@
 画面先在手机本地降采样为 16×16 亮度网格，识别敌方 5 名英雄（返回 Top-3 候选 + 置信度），
 由玩家**确认或纠错**后，才调用本机 FastAPI 规则引擎，返回带证据的出装建议。
 
-> **产品文档**：[`docs/MOBA_BUILD_AGENT_PRD.md`](docs/MOBA_BUILD_AGENT_PRD.md) — 玩家痛点、AI 边界、评测与路线图。
+> **案例研究**：[`docs/CASE_STUDY.md`](docs/CASE_STUDY.md) — 问题、工作流、AI 边界与评测。 **产品文档**：[`docs/MOBA_BUILD_AGENT_PRD.md`](docs/MOBA_BUILD_AGENT_PRD.md)
+
+### 界面预览
+
+![演示工作台](docs/screenshots/demo-full.png)
+
+_本地规则引擎 + 官方装备知识库，返回带证据的出装建议与紧急秒换提醒。_
 
 ## 产品边界
 
