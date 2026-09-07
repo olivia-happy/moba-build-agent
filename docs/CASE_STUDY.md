@@ -1,6 +1,6 @@
 # MOBA Build Agent 案例研究：把"跟系统出装"变成"看懂这一局该怎么出"
 
-> 演示录屏待补：此处将挂 1 分钟操作演示视频。
+> **[在线体验 H5 演示](https://olivia-happy.github.io/moba-build-agent/)** · 录屏待补：此处将挂 1 分钟操作演示视频。
 
 ## 1. 问题与用户
 
