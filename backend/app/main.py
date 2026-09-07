@@ -20,7 +20,7 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.decision_agent import BuildDecisionInput, decide_next_purchase
+from app.decision_agent import BuildDecisionInput, ROLE_LABELS, decide_next_purchase
 from app.equipment_catalog import EquipmentRule, build_equipment_rules, load_catalog
 from app.emergency_swap import EmergencySwapAdvice, recommend_emergency_swap
 from app.frame_analysis import MatchCandidate, rank_candidates
@@ -341,6 +341,20 @@ def create_player_confirmed_decision(payload: dict[str, object]) -> dict[str, ob
     needs_tenacity = bool(payload.get("needs_tenacity", False))
 
     profiles = _threat_profiles()
+    catalog_heroes = load_hero_catalog()
+    catalog_hero_by_id = {hero.hero_id: hero for hero in catalog_heroes}
+    raw_own_hero_id = payload.get("own_hero_id")
+    own_hero_id: int | None = None
+    own_hero = None
+    if raw_own_hero_id is not None:
+        try:
+            own_hero_id = int(raw_own_hero_id)
+        except (TypeError, ValueError) as exc:
+            raise HTTPException(status_code=422, detail="own_hero_id must be an integer") from exc
+        own_hero = catalog_hero_by_id.get(own_hero_id)
+        if own_hero is None:
+            raise HTTPException(status_code=422, detail=f"own hero {own_hero_id} not found in official catalog")
+
     item_rules = _item_rules()
     decision = decide_next_purchase(
         BuildDecisionInput(
@@ -348,6 +362,7 @@ def create_player_confirmed_decision(payload: dict[str, object]) -> dict[str, ob
             profiles=profiles,
             match_state=MatchState(gold=gold, owned_item_ids=owned_item_ids),
             item_rules=item_rules,
+            own_hero_type=own_hero.hero_type if own_hero else None,
         )
     )
     rule_by_id = {rule.item_id: rule for rule in item_rules}
@@ -394,6 +409,21 @@ def create_player_confirmed_decision(payload: dict[str, object]) -> dict[str, ob
         "priority_needs": decision.priority_needs,
         "threat_counts": decision.threat_counts,
         "unknown_hero_ids": decision.unknown_hero_ids,
+        "own_hero": {
+            "hero_id": own_hero.hero_id,
+            "name": own_hero.name,
+            "hero_type": own_hero.hero_type,
+            "role_label": ROLE_LABELS.get(own_hero.hero_type, "未分类"),
+        } if own_hero else None,
+        "own_hero_adjustments": [
+            {
+                "code": adjustment.code,
+                "label": adjustment.label,
+                "added_needs": adjustment.added_needs,
+                "reason": adjustment.reason,
+            }
+            for adjustment in decision.own_hero_adjustments
+        ],
         "recommendations": recommendations,
         "emergency_swap": _emergency_swap_to_dict(emergency_advice),
         "catalog_provenance": {

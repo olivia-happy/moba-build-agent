@@ -33,3 +33,26 @@ def test_decision_agent_links_enemy_threat_to_affordable_purchase_evidence():
     assert decision.recommendations[0].purchase_status == "buy_component"
     assert decision.recommendations[0].next_item_name == "神速之靴"
     assert decision.recommendations[0].evidence == "提供韧性与法术防御"
+
+
+def test_own_fragile_role_adds_survival_need_for_enemy_burst():
+    profiles = {
+        10: HeroThreatProfile(hero_id=10, name="爆发法师", tags={"magic_burst"}),
+    }
+    items = [
+        ItemRule(item_id=2, name="保命装", price=2000, functions={"survival"}, evidence="提供保命"),
+    ]
+
+    decision = decide_next_purchase(
+        BuildDecisionInput(
+            enemy_hero_ids=[10],
+            profiles=profiles,
+            match_state=MatchState(gold=2200, owned_item_ids=set()),
+            item_rules=items,
+            own_hero_type=5,
+        )
+    )
+
+    assert decision.priority_needs == ["magic_resist", "survival"]
+    assert decision.own_hero_adjustments[0].code == "fragile_survival"
+    assert decision.recommendations[0].item_name == "保命装"
