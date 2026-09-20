@@ -1,0 +1,64 @@
+---
+description: MOBA Build Agent 项目总则——显式规则引擎 + 本地隐私边界
+alwaysApply: true
+---
+
+# MOBA Build Agent 项目总则
+
+**项目**：王者荣耀出装助手。手机截图 → 本地识别敌方 5 英雄头像 → 按显式规则引擎
+（威胁标签 → 优先需求 → 装备功能覆盖 → 金币/格子/唯一组/次数约束）算装备顺序，
+每条建议附官方装备文本证据。
+
+**核心取舍**：用规则引擎，**不用黑箱 AI**；全本地、零付费 API。
+
+三端：`backend/`（Python + FastAPI）· `h5-demo/`（Vite + React）· `android-app/`（Kotlin）。
+完整约定见 [AGENTS.md](../../AGENTS.md) 与 [HANDOFF.md](../../HANDOFF.md)。
+
+## 七条红线
+
+1. **规则引擎，不是黑箱模型** —— 决策必须显式、可解释、可测试。不得用模型替代规则。
+2. **「推荐只对敌不对己」是已知缺口** —— 当前无我方英雄/定位/经济阶段输入，不要包装成已支持。
+3. **隐私边界** —— 不读内存、不自动点击、不自动购买；**原始帧不离开手机**，
+   只上传 5 个 16×16 灰度网格。
+4. **识别必须人工确认** —— Top-3 候选 + 人工确认，识别结果不得直接驱动推荐。
+5. **证据可追溯** —— 每条建议附官方装备文本证据、索引哈希、规则版本、未知项披露。
+6. **本地优先零成本** —— 不接任何付费 API。
+7. **数据真值不可夸大** —— 见下。
+
+## 🔴 数字真值（`docs/GAME_BREAKDOWN.md` 是唯一真值来源）
+
+`GAME_BREAKDOWN.md` §1 自写：**「121 件是目录接入量，不是都做了人工标注」**。
+
+- 人工标注 **28 件** + 文本解析补 **20 件** = **48 件**进标签体系
+- 其余 **73 件**无标签
+- **禁止**写「121 件全部标注」。被问到就答「没有，是 48 件」。
+
+其余：无真实用户数据、不宣称提升胜率；
+`HeroSelectLayout` 坐标是假设值（1080×2400、纵向右侧），**必须真机校准**，
+校准前不得声称识别准确率。
+
+> 诚实披露「没验到什么」是加分项。不要删边界声明。
+
+## 命令
+
+```bash
+pytest -q                              # 仓库根，42 用例
+python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000 --app-dir backend
+cd h5-demo && npm run dev
+cd android-app && ./gradlew test
+cd android-app && ./gradlew assembleDebug
+```
+
+## 跨端一致性
+
+后端与 Android **各有一份头像匹配实现**；`layout_version` 硬编码在前后端；
+`portrait_index.json` 由后端脚本生成后搬进 Android assets；API 契约三端共用。
+**改一处必须同步检查另两端。**
+
+## 风格
+
+- Python：模块职责单一，类型注解尽量补全。
+- Kotlin：Compose；`*Policy.kt` 保持纯函数以便单测。
+- H5：React 函数组件 + hooks。
+- 不提交 `.venv/` / `__pycache__/` / `android-app/local.properties` /
+  `android-app/.gradle/` / `android-app/app/build/` / `node_modules/`。

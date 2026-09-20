@@ -1,0 +1,64 @@
+---
+description: Android Kotlin 代码约定（截图识别 / 悬浮窗 / 本地决策请求）
+globs: "android-app/**/*.{kt,kts}"
+---
+
+# Android 端约定
+
+## 结构
+
+```
+android-app/app/src/main/java/com/localbuildagent/overlay/
+  MainActivity.kt              # 主界面与授权
+  OverlayService.kt            # 悬浮球 / 悬浮窗
+  SingleFrameCaptureService.kt # 单帧截图
+  FrameAnalyzer.kt             # 截图 → 裁剪 → 降采样 → 匹配
+  HeroPortraitMatcher.kt       # 头像指纹匹配
+  HeroSelectLayout.kt          # ⚠️ 选人界面坐标假设（已知需真机校准）
+  PortraitIndexParser.kt       # 解析 assets/portrait_index.json
+  PortraitIndexStore.kt        # 索引存储
+  LocalDecisionClient.kt       # ⚠️ 请求本地后端（默认 10.0.2.2 = 模拟器）
+  CaptureIntentPolicy.kt       # 截图意图策略（纯逻辑）
+  ReviewScreen.kt              # 识别结果人工确认
+android-app/app/src/main/assets/portrait_index.json
+android-app/app/src/test/java/com/localbuildagent/overlay/   # 6 个单测
+```
+
+## 硬性要求
+
+1. **隐私边界不可突破。** 不读内存、不自动点击、不自动购买；
+   **原始帧不离开设备**，只上传 5 个 16×16 灰度网格。
+   任何新增权限或上传能力都必须先论证并说明理由。
+2. **识别必须经人工确认。** `ReviewScreen` 是流程的必经环节，
+   **不要**做「直接采用 Top-1 结果」的捷径。
+3. **策略类保持纯函数。** `*Policy.kt`（如 `CaptureIntentPolicy`）不依赖 Android 框架，
+   以便在 `src/test/` 下直接单测。
+4. **坐标假设必须显式标注。** `HeroSelectLayout` 的坐标是**拍脑袋写的假设值**
+   （1080×2400、敌方 5 人纵向右侧固定位置），真机是环绕式棋盘布局。
+   新增/修改坐标时必须保留注释说明「未真机校准」。
+5. **索引数据来源单一。** `portrait_index.json` 由后端脚本生成，
+   **不要**在 Android 侧手工编辑。
+
+## 改完必跑
+
+```bash
+cd android-app
+./gradlew test              # 6 个单元测试
+./gradlew assembleDebug     # 确认能构建出 APK
+```
+
+## 常见坑
+
+- **`LocalDecisionClient` 默认 `10.0.2.2`** —— 这是模拟器回环地址。
+  真机联调要改成电脑的局域网 IP，且后端必须 `--host 0.0.0.0` 启动。
+- **`layout_version` 在 Android 与后端都有硬编码** —— 改一处要搜两端。
+- **`portrait_index.json` 重新生成后必须重新搬进 assets** —— 否则用的是旧指纹。
+- **悬浮球当前会拉起 MainActivity**（走授权），不是悬浮小窗直接出结果 ——
+  MVP 可接受，**是已知体验问题**，不要当 bug 去"修"成更复杂的悬浮窗而引入风险。
+- **`local.properties` 已 gitignore** —— 内含本机 SDK 路径，不要提交。
+
+## 已知未完成项（不要误判为 bug）
+
+- **选人坐标未真机校准** —— 是已知风险，校准是明确待办。
+- **只对敌不对己** —— 缺我方维度输入，是产品层已知缺口。
+- **悬浮球打断感** —— MVP 已知体验问题。

@@ -1,0 +1,65 @@
+---
+description: 后端 Python 代码约定（FastAPI + 出装规则引擎）
+globs: "backend/**/*.py"
+---
+
+# 后端约定
+
+## 模块职责（一个模块一件事）
+
+```
+backend/app/
+  main.py               # FastAPI 入口与路由
+  portrait_index.py     # 132 英雄头像指纹索引（16×16 亮度网格 + 哈希），可复现构建
+  frame_analysis.py     # 截图 → 裁剪 → 降采样 → 本地匹配，返回 Top-3 候选
+  equipment_catalog.py  # 官方 121 件装备目录 + 功能标签 + 组件路径 + 限制
+  hero_profiles.py      # 官方 132 英雄目录 + 威胁标签
+  lineup_threats.py     # 敌方阵容威胁聚合
+  decision_agent.py     # 威胁聚合 → 需求排序 → 装备覆盖 → 购买计划  ← 核心
+  emergency_swap.py     # 保命装秒换 / 冷静鞋→抵抗鞋，带金币/格子/次数约束
+  scoring.py            # 评分
+  evidence.py           # 证据挂载
+  match_state.py        # 对局状态
+  game_catalog.py       # 目录读取
+  build_recommendations.py
+  review_stats.py       # 复盘统计
+  video_workflow.py     # 视频流程
+backend/tests/          # 18 个测试文件 / 42 个用例
+```
+
+## 硬性要求
+
+1. **规则必须显式可测。** 决策链条（威胁标签计数 → 优先需求 → 装备覆盖 → 约束求解）
+   每一步都应该是可单测的纯逻辑。**任何引入模型做决策的改动都不接受。**
+2. **约束必须硬校验。** 金币、格子、唯一组、复活甲限次、冷却 —— 这些约束是购买计划的
+   正确性底线，新增装备或标签后要补对应约束测试。
+3. **证据字段不可省。** `evidence.py` 挂载的官方文本证据、索引哈希、规则版本、未知项披露，
+   是产品核心价值。不要为了接口瘦身砍掉。
+4. **识别结果永远带不确定性。** `frame_analysis.py` 返回 Top-3 候选 + 分数，
+   **不得**返回「唯一确定答案」。
+5. **数据真值以 `docs/GAME_BREAKDOWN.md` 为准。** 尤其：121 件装备中**只有 48 件**有标签
+   （人工 28 + 文本解析 20），其余 73 件无标签。代码注释与文档都不得写成「全部标注」。
+
+## 改完必跑
+
+```bash
+pytest -q          # 在仓库根执行
+```
+
+## 常见坑
+
+- **`pytest -q` 在仓库根跑** —— `pytest.ini` 里 `testpaths = backend/tests`、
+  `pythonpath = backend`。在 `backend/` 里跑会导入失败。
+- **头像索引要重新构建时**：`portrait_index.py` 的产出还要**同步搬进
+  `android-app/app/src/main/assets/portrait_index.json`**，否则 App 端用旧数据。
+- **改算法要同步 Kotlin 侧**：`frame_analysis.py` / `portrait_index.py` 与
+  Android 的 `FrameAnalyzer.kt` / `HeroPortraitMatcher.kt` 是两份实现。
+- **`equipment_catalog.py` 的标签是 26 类装备功能标签的来源**，
+  改标签体系会影响 `decision_agent.py` 的覆盖计算，必须同步改测试。
+- **不要在接口里加联网调用** —— 本地优先、零付费 API 是产品的立身之本。
+
+## 已知未完成项（不要误判为 bug）
+
+- 「推荐只对敌不对己」—— 缺我方英雄/定位/经济阶段输入，**是已知缺口**。
+- `layout_version` 硬编码 —— 真机校准后应版本化，**当前是临时态**。
+- 73 件装备无标签 —— **是已知状态**，不是漏做。
